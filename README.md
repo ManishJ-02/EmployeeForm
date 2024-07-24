@@ -1,4 +1,4 @@
-# EmpForm
+# EmployeeForm
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
 
@@ -25,5 +25,23 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# EmployeeForm
-Assignment
+
+## Additional Information
+
+- **Project Name:** EmployeeForm
+- **Assignment:**
+
+## Project Overview
+
+This Angular application captures employee information through a form with fields for first name, last name, email, phone number, address, position, and date of joining, with validations for correctness. It includes a client selection dropdown at the top-right of the screen, allowing users to choose from 'Client A', 'Client B', or 'Client C'. The application dynamically changes its theme based on the selected client, with predefined themes for each client. Built with Angular (version 14.2.13) and the project also features optional form reset functionality and a display of submitted data in a table.
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org/) (version 14 or higher)
+- [Angular CLI](https://angular.io/cli) (version 14.2.13)
+
+## Setup Instructions
+
+1. **Clone the Repository:**
+   ```bash
+   git clone <repository-url>
