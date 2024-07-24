@@ -1,0 +1,5 @@
+<div class="client-selector-container">
+  <select (change)="onClientChange($event)">
+    <option *ngFor="let client of clients" [value]="client">{{ client }}</option>
+  </select>
+</div>

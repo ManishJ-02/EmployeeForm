@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.blue-theme {
+    --header-color: blue;
+    --background-color: white;
+}
+
+.green-theme {
+    --header-color: green;
+    --background-color: lightgray;
+}
+
+.red-theme {
+    --header-color: red;
+    --background-color: beige;
+}
+
+header {
+    background-color: var(--header-color);
+    padding: 2rem;
+    color: white;
+}
+
+main {
+    padding: 1rem;
+    background-color: var(--background-color);
+}

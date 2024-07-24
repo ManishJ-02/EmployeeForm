@@ -1,0 +1,128 @@
+<div class="form-container">
+  <form class="form-horizontal" #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)" novalidate>
+    
+    <div class="form-group row">
+      <label for="firstName" class="col-lg-4 col-form-label">First Name:</label>
+      <div class="col-sm-8">
+        <input class="form-control" id="firstName" name="firstName" [(ngModel)]="employee.firstName" required #firstName="ngModel" />
+        <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="text-danger">
+          <div *ngIf="firstName.errors?.['required']">First name is required.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="lastName" class="col-lg-4 col-form-label">Last Name:</label>
+      <div class="col-sm-8">
+        <input class="form-control" id="lastName" name="lastName" [(ngModel)]="employee.lastName" required #lastName="ngModel" />
+        <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="text-danger">
+          <div *ngIf="lastName.errors?.['required']">Last name is required.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="email" class="col-lg-4 col-form-label">Email:</label>
+      <div class="col-sm-8">
+        <input class="form-control" id="email" name="email" type="email" [(ngModel)]="employee.email" required #email="ngModel"
+          pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" />
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+          <div *ngIf="email.errors?.['required']">Email is required.</div>
+          <div *ngIf="email.errors?.['email']">Enter a valid email.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="phoneNumber" class="col-lg-4 col-form-label">Phone Number:</label>
+      <div class="col-sm-8">
+        <input class="form-control" id="phoneNumber" name="phoneNumber" [(ngModel)]="employee.phoneNumber" required #phoneNumber="ngModel"
+          pattern="\d{10}" />
+        <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="text-danger">
+          <div *ngIf="phoneNumber.errors?.['required']">Phone number is required.</div>
+          <div *ngIf="phoneNumber.errors?.['pattern']">Enter a valid 10-digit phone number.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="address" class="col-lg-4 col-form-label">Address:</label>
+      <div class="col-sm-8">
+        <textarea class="form-control" id="address" name="address" [(ngModel)]="employee.address"></textarea>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="position" class="col-lg-4 col-form-label">Position:</label>
+      <div class="col-sm-8">
+        <select class="form-control" id="position" name="position" [(ngModel)]="employee.position">
+          <option value="Manager">Manager</option>
+          <option value="Developer">Developer</option>
+          <option value="Designer">Designer</option>
+          <option value="HR">HR</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="dateOfJoining" class="col-lg-4 col-form-label">Date of Joining:</label>
+      <div class="col-sm-8">
+        <input class="form-control" id="dateOfJoining" name="dateOfJoining" type="date" [(ngModel)]="employee.dateOfJoining" required
+          #dateOfJoining="ngModel" />
+        <div *ngIf="dateOfJoining.invalid && (dateOfJoining.dirty || dateOfJoining.touched)" class="text-danger">
+          <div *ngIf="dateOfJoining.errors?.['required']">Date of joining is required.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-12 justify-content-end d-flex">
+        <button type="submit" class="btn btn-primary" [disabled]="employeeForm.invalid"
+        data-tooltip="Ensure all fields are completed and validated before submitting.">Submit</button>
+        <button type="button" class="btn btn-secondary ml-2" (click)="onReset(employeeForm)">Reset</button>
+      </div>
+    </div>
+  </form>
+
+  <div *ngIf="submittedData" class="mt-4">
+    <h2 class="text-center mb-4">Submitted Data</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>First Name</td>
+          <td>{{ submittedData.firstName }}</td>
+        </tr>
+        <tr>
+          <td>Last Name</td>
+          <td>{{ submittedData.lastName }}</td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>{{ submittedData.email }}</td>
+        </tr>
+        <tr>
+          <td>Phone Number</td>
+          <td>{{ submittedData.phoneNumber }}</td>
+        </tr>
+        <tr>
+          <td>Address</td>
+          <td>{{ submittedData.address }}</td>
+        </tr>
+        <tr>
+          <td>Position</td>
+          <td>{{ submittedData.position }}</td>
+        </tr>
+        <tr>
+          <td>Date of Joining</td>
+          <td>{{ submittedData.dateOfJoining }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
